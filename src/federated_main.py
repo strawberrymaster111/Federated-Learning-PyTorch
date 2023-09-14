@@ -29,8 +29,8 @@ if __name__ == '__main__':
     args = args_parser()
     exp_details(args)
 
-    if args.gpu_id:
-        torch.cuda.set_device(args.gpu_id)
+    # if args.gpu_id:
+    #     torch.cuda.set_device(args.gpu_id)
     device = 'cuda' if args.gpu else 'cpu'
 
     # load dataset and user groups
@@ -122,7 +122,7 @@ if __name__ == '__main__':
     print("|---- Test Accuracy: {:.2f}%".format(100*test_acc))
 
     # Saving the objects train_loss and train_accuracy:
-    file_name = '../save/objects/{}_{}_{}_C[{}]_iid[{}]_E[{}]_B[{}].pkl'.\
+    file_name = './save/objects/{}_{}_{}_C[{}]_iid[{}]_E[{}]_B[{}].pkl'.\
         format(args.dataset, args.model, args.epochs, args.frac, args.iid,
                args.local_ep, args.local_bs)
 
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     # plt.plot(range(len(train_loss)), train_loss, color='r')
     # plt.ylabel('Training loss')
     # plt.xlabel('Communication Rounds')
-    # plt.savefig('../save/fed_{}_{}_{}_C[{}]_iid[{}]_E[{}]_B[{}]_loss.png'.
+    # plt.savefig('./save/fed_{}_{}_{}_C[{}]_iid[{}]_E[{}]_B[{}]_loss.png'.
     #             format(args.dataset, args.model, args.epochs, args.frac,
     #                    args.iid, args.local_ep, args.local_bs))
     #
@@ -152,6 +152,6 @@ if __name__ == '__main__':
     # plt.plot(range(len(train_accuracy)), train_accuracy, color='k')
     # plt.ylabel('Average Accuracy')
     # plt.xlabel('Communication Rounds')
-    # plt.savefig('../save/fed_{}_{}_{}_C[{}]_iid[{}]_E[{}]_B[{}]_acc.png'.
+    # plt.savefig('./save/fed_{}_{}_{}_C[{}]_iid[{}]_E[{}]_B[{}]_acc.png'.
     #             format(args.dataset, args.model, args.epochs, args.frac,
     #                    args.iid, args.local_ep, args.local_bs))
